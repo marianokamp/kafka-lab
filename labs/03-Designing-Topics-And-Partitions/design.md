@@ -39,12 +39,19 @@ Our goal is to design a Kafka cluster that can handle the events being passed be
 Spend some time discussing if Kafka is a good solution for this use case.
 Is there other possible solutions?
 
+A: Dealing with self-contained events looks like a good idea to do with Kafka. Producers can act decoupled and always-on from the consumers. Different consumer groups can exploit the topic name structure.
+
 ### Question 2: What topics?
 
 How do we select which topics we would use for this use case.
 What topics do you suggest we create?
 
+A: Topics: [patient_group].[patient].[device_type].[measurement_type].[ymd]
+In the avro payload all of the above plus the measurement value, device and timestamp.
+
 ### Question 3: Which partitions?
 
 What would be the factors that you would use to design the partitions?
 Suggest some partitions for your topics and justify why you selected these partitions.
+
+A: No idea, how many brokers? 
